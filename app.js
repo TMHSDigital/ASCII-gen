@@ -9,6 +9,11 @@ window.onload = function() {
     const shareBtn = document.getElementById("shareBtn");
     const darkModeToggle = document.getElementById("darkModeToggle");
 
+    if (!generateBtn || !userInput || !fontSelect || !output || !charCount || !exportBtn || !shareBtn || !darkModeToggle) {
+        console.error("One or more elements not found");
+        return;
+    }
+
     generateBtn.addEventListener("click", function() {
         const text = userInput.value;
         const font = fontSelect.value;

@@ -54,6 +54,7 @@ pre {
     font-family: monospace;
     font-size: 1.2rem;
     background-color: #e9ecef;
+    color: #333;
     padding: 10px;
     border-radius: 4px;
     overflow-x: auto;
@@ -77,6 +78,11 @@ body.dark-mode button {
 
 body.dark-mode button:hover {
     background-color: #777;
+}
+
+body.dark-mode pre {
+    background-color: #555;
+    color: #f4f4f9;
 }
 
 /* Responsive design */
