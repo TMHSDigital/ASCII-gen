@@ -22,7 +22,11 @@ window.onload = function() {
     document.getElementById("output").addEventListener("click", function() {
         const outputText = document.getElementById("output").innerText;
         navigator.clipboard.writeText(outputText).then(() => {
-            alert("ASCII art copied to clipboard!");
+            const originalText = document.getElementById("output").innerText;
+            document.getElementById("output").innerText = "Copied!";
+            setTimeout(() => {
+                document.getElementById("output").innerText = originalText;
+            }, 1000);
         }).catch(err => {
             console.error("Failed to copy text: ", err);
         });
@@ -44,4 +48,10 @@ window.onload = function() {
             }
         });
     }
+
+    // Update character count
+    document.getElementById("userInput").addEventListener("input", function() {
+        const charCount = document.getElementById("userInput").value.length;
+        document.getElementById("charCount").innerText = `${charCount}/100`;
+    });
 };
