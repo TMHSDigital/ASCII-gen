@@ -13,13 +13,17 @@
         <h1>ASCII Generator</h1>
         <p>Type your text below and select a style to generate ASCII art:</p>
         
-        <input type="text" id="userInput" placeholder="Enter your text here">
+        <label for="userInput">Enter text:</label>
+        <input type="text" id="userInput" placeholder="Enter your text here" aria-label="Text input for ASCII generation">
         <label for="fontSelect">Choose a font:</label>
-        <select id="fontSelect">
+        <select id="fontSelect" aria-label="Font selection for ASCII generation">
             <option value="Standard">Standard</option>
             <option value="Slant">Slant</option>
             <option value="Ghost">Ghost</option>
             <option value="Doom">Doom</option>
+            <option value="Big">Big</option>
+            <option value="Banner">Banner</option>
+            <option value="Block">Block</option>
         </select>
         <button id="generateBtn">Generate</button>
         

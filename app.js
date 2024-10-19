@@ -7,6 +7,8 @@ window.onload = function() {
         console.log("User Input:", userInput);
         console.log("Selected Font:", fontSelect);
 
+        document.getElementById("output").innerText = "Generating ASCII art...";
+
         figlet.text(userInput, { font: fontSelect }, function(err, data) {
             if (err) {
                 document.getElementById("output").innerText = "Error: Could not generate ASCII";
