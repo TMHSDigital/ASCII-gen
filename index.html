@@ -1,0 +1,30 @@
+<!-- ASCII-gen: A frontend-only ASCII art generator by TMHSDigital -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASCII Generator</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/figlet@1.5.0/figlet.min.js"></script>
+</head>
+<body>
+    <div id="container">
+        <h1>ASCII Generator</h1>
+        <p>Type your text below and select a style to generate ASCII art:</p>
+        
+        <input type="text" id="userInput" placeholder="Enter your text here">
+        <select id="fontSelect">
+            <option value="Standard">Standard</option>
+            <option value="Slant">Slant</option>
+            <option value="Ghost">Ghost</option>
+            <option value="Doom">Doom</option>
+        </select>
+        <button id="generateBtn">Generate</button>
+        
+        <pre id="output"></pre>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

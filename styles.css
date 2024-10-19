@@ -1,0 +1,20 @@
+/* styles.css */
+#container {
+    text-align: center;
+    margin-top: 50px;
+}
+input[type="text"] {
+    padding: 10px;
+    font-size: 1rem;
+    width: 300px;
+}
+button {
+    padding: 10px;
+    font-size: 1rem;
+    margin-left: 10px;
+}
+pre {
+    margin-top: 20px;
+    font-family: monospace;
+    font-size: 1.2rem;
+}
