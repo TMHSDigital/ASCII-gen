@@ -33,6 +33,19 @@ window.onload = function() {
         });
     });
 
+    exportBtn.addEventListener("click", function() {
+        if (output.innerText === "Generating ASCII art..." || output.innerText === "") {
+            alert("Please generate the ASCII art before exporting.");
+            return;
+        }
+        html2canvas(output).then(canvas => {
+            const link = document.createElement('a');
+            link.href = canvas.toDataURL();
+            link.download = 'ascii-art.png';
+            link.click();
+        });
+    });
+
     output.addEventListener("click", function() {
         const outputText = output.innerText;
         navigator.clipboard.writeText(outputText).then(() => {
@@ -64,15 +77,6 @@ window.onload = function() {
     userInput.addEventListener("input", function() {
         const count = userInput.value.length;
         charCount.innerText = `${count}/100`;
-    });
-
-    exportBtn.addEventListener("click", function() {
-        html2canvas(output).then(canvas => {
-            const link = document.createElement('a');
-            link.href = canvas.toDataURL();
-            link.download = 'ascii-art.png';
-            link.click();
-        });
     });
 
     shareBtn.addEventListener('click', function() {
