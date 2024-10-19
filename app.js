@@ -4,6 +4,9 @@ window.onload = function() {
         let userInput = document.getElementById("userInput").value;
         let fontSelect = document.getElementById("fontSelect").value;
         
+        console.log("User Input:", userInput);
+        console.log("Selected Font:", fontSelect);
+
         figlet.text(userInput, { font: fontSelect }, function(err, data) {
             if (err) {
                 document.getElementById("output").innerText = "Error: Could not generate ASCII";
