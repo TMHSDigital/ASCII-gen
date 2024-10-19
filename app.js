@@ -15,18 +15,17 @@ window.onload = function() {
     }
 
     generateBtn.addEventListener("click", function() {
-        const text = userInput.value;
+        const text = userInput.value.trim();
         const font = fontSelect.value;
         
-        console.log("User Input:", text);
-        console.log("Selected Font:", font);
+        if (!text) {
+            output.innerText = "Please enter text to generate ASCII art.";
+            return;
+        }
 
-        output.innerText = "Generating ASCII art...";
-
-        figlet.text(text, { font: font }, function(err, data) {
+        generateASCII(text, font, function(err, data) {
             if (err) {
                 output.innerText = "Error: Could not generate ASCII";
-                console.error(err);
                 return;
             }
             output.innerText = data;
@@ -55,7 +54,7 @@ window.onload = function() {
                 output.innerText = originalText;
             }, 1000);
         }).catch(err => {
-            console.error("Failed to copy text: ", err);
+            console.error("Failed to copy text:", err);
         });
     });
 
@@ -65,14 +64,14 @@ window.onload = function() {
 
     darkModeToggle.addEventListener("click", toggleDarkMode);
 
-    function updateFontPreview() {
+    fontSelect.addEventListener("change", function() {
         const font = fontSelect.value;
-        figlet.text('Preview', { font: font }, function(err, data) {
+        updateFontPreview(font, function(err, data) {
             if (!err) {
                 document.getElementById("fontPreview").innerText = data;
             }
         });
-    }
+    });
 
     userInput.addEventListener("input", function() {
         const count = userInput.value.length;
