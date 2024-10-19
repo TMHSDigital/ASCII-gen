@@ -13,18 +13,43 @@
         <h1>ASCII Generator</h1>
         <p>Type your text below and select a style to generate ASCII art:</p>
         
-        <input type="text" id="userInput" placeholder="Enter your text here">
-        <select id="fontSelect">
+        <label for="userInput">Enter text:</label>
+        <input type="text" id="userInput" placeholder="Enter your text here" aria-label="Text input for ASCII generation">
+        <label for="fontSelect">Choose a font:</label>
+        <select id="fontSelect" aria-label="Font selection for ASCII generation" onchange="updateFontPreview()">
             <option value="Standard">Standard</option>
             <option value="Slant">Slant</option>
             <option value="Ghost">Ghost</option>
             <option value="Doom">Doom</option>
+            <option value="Big">Big</option>
+            <option value="Banner">Banner</option>
+            <option value="Block">Block</option>
         </select>
-        <button id="generateBtn">Generate</button>
         
-        <pre id="output"></pre>
+        <!-- Add aria-live for dynamic content updates -->
+        <pre id="output" aria-live="polite"></pre>
+        <pre id="fontPreview" aria-live="polite">Preview</pre>
+        <p id="charCount">0/100</p>
     </div>
 
-    <script src="app.js"></script>
+    <!-- Button container for better layout -->
+    <div class="button-container">
+        <button id="generateBtn" class="tooltip" aria-label="Generate ASCII art">Generate
+            <span class="tooltiptext">Generate ASCII art</span>
+        </button>
+        <button id="darkModeToggle" aria-label="Toggle dark mode">Toggle Dark Mode</button>
+        <button id="exportBtn" class="tooltip" aria-label="Export ASCII art as image">Export as Image
+            <span class="tooltiptext">Download as PNG</span>
+        </button>
+        <button id="shareBtn" aria-label="Share ASCII art">Share</button>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="app.js" defer></script>
+
+    <!-- Add a footer -->
+    <footer>
+        <p>Created by TMHSDigital | <a href="https://github.com/tmhsdigital/ASCII-gen" target="_blank" rel="noopener noreferrer">GitHub</a></p>
+    </footer>
 </body>
 </html>
