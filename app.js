@@ -1,63 +1,68 @@
 // app.js
 window.onload = function() {
-    document.getElementById("generateBtn").addEventListener("click", function() {
-        let userInput = document.getElementById("userInput").value;
-        let fontSelect = document.getElementById("fontSelect").value;
+    const generateBtn = document.getElementById("generateBtn");
+    const userInput = document.getElementById("userInput");
+    const fontSelect = document.getElementById("fontSelect");
+    const output = document.getElementById("output");
+    const charCount = document.getElementById("charCount");
+    const exportBtn = document.getElementById("exportBtn");
+    const shareBtn = document.getElementById("shareBtn");
+    const darkModeToggle = document.getElementById("darkModeToggle");
+
+    generateBtn.addEventListener("click", function() {
+        const text = userInput.value;
+        const font = fontSelect.value;
         
-        console.log("User Input:", userInput);
-        console.log("Selected Font:", fontSelect);
+        console.log("User Input:", text);
+        console.log("Selected Font:", font);
 
-        document.getElementById("output").innerText = "Generating ASCII art...";
+        output.innerText = "Generating ASCII art...";
 
-        figlet.text(userInput, { font: fontSelect }, function(err, data) {
+        figlet.text(text, { font: font }, function(err, data) {
             if (err) {
-                document.getElementById("output").innerText = "Error: Could not generate ASCII";
+                output.innerText = "Error: Could not generate ASCII";
                 console.error(err);
                 return;
             }
-            document.getElementById("output").innerText = data;
+            output.innerText = data;
         });
     });
 
-    document.getElementById("output").addEventListener("click", function() {
-        const outputText = document.getElementById("output").innerText;
+    output.addEventListener("click", function() {
+        const outputText = output.innerText;
         navigator.clipboard.writeText(outputText).then(() => {
-            const originalText = document.getElementById("output").innerText;
-            document.getElementById("output").innerText = "Copied!";
+            const originalText = output.innerText;
+            output.innerText = "Copied!";
             setTimeout(() => {
-                document.getElementById("output").innerText = originalText;
+                output.innerText = originalText;
             }, 1000);
         }).catch(err => {
             console.error("Failed to copy text: ", err);
         });
     });
 
-    // Add dark mode toggle
     const toggleDarkMode = () => {
         document.body.classList.toggle('dark-mode');
     };
 
-    document.getElementById("darkModeToggle").addEventListener("click", toggleDarkMode);
+    darkModeToggle.addEventListener("click", toggleDarkMode);
 
-    // Update font preview
     function updateFontPreview() {
-        let fontSelect = document.getElementById("fontSelect").value;
-        figlet.text('Preview', { font: fontSelect }, function(err, data) {
+        const font = fontSelect.value;
+        figlet.text('Preview', { font: font }, function(err, data) {
             if (!err) {
                 document.getElementById("fontPreview").innerText = data;
             }
         });
     }
 
-    // Update character count
-    document.getElementById("userInput").addEventListener("input", function() {
-        const charCount = document.getElementById("userInput").value.length;
-        document.getElementById("charCount").innerText = `${charCount}/100`;
+    userInput.addEventListener("input", function() {
+        const count = userInput.value.length;
+        charCount.innerText = `${count}/100`;
     });
 
-    // Export ASCII art as an image
-    document.getElementById("exportBtn").addEventListener("click", function() {
-        html2canvas(document.getElementById("output")).then(canvas => {
+    exportBtn.addEventListener("click", function() {
+        html2canvas(output).then(canvas => {
             const link = document.createElement('a');
             link.href = canvas.toDataURL();
             link.download = 'ascii-art.png';
@@ -65,13 +70,8 @@ window.onload = function() {
         });
     });
 
-    // Add a share button
-    const shareBtn = document.createElement('button');
-    shareBtn.innerText = 'Share';
-    document.body.appendChild(shareBtn);
-
     shareBtn.addEventListener('click', function() {
-        const outputText = document.getElementById("output").innerText;
+        const outputText = output.innerText;
         if (navigator.share) {
             navigator.share({
                 title: 'My ASCII Art',

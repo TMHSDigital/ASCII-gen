@@ -1,5 +1,15 @@
 # Changelog
 
+## [1.2.0] - 2023-10-19
+
+### Added
+- **Security**: Added `rel="noopener noreferrer"` to external links.
+- **Accessibility**: Improved aria-labels and aria-live attributes for better screen reader support.
+
+### Changed
+- **Code Organization**: Improved JavaScript code structure for better readability and maintainability.
+- **Layout**: Removed duplicate "Generate" button and organized buttons using flexbox.
+
 ## [1.1.0] - 2023-10-19
 
 ### Added
