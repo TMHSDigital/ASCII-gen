@@ -5,8 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ASCII Generator</title>
+    <!-- Link to external CSS for styling -->
     <link rel="stylesheet" href="styles.css">
+    <!-- Include figlet library for ASCII generation -->
     <script src="https://cdn.jsdelivr.net/npm/figlet@1.5.0/figlet.min.js"></script>
+    <!-- Include custom JavaScript files -->
     <script src="asciiGenerator.js" defer></script>
     <script src="app.js" defer></script>
 </head>
@@ -15,8 +18,11 @@
         <h1>ASCII Generator</h1>
         <p>Type your text below and select a style to generate ASCII art:</p>
         
+        <!-- Input for user text -->
         <label for="userInput">Enter text:</label>
         <input type="text" id="userInput" placeholder="Enter your text here" aria-label="Text input for ASCII generation">
+        
+        <!-- Dropdown for font selection -->
         <label for="fontSelect">Choose a font:</label>
         <select id="fontSelect" aria-label="Font selection for ASCII generation" onchange="updateFontPreview()">
             <option value="Standard">Standard</option>
@@ -28,9 +34,11 @@
             <option value="Block">Block</option>
         </select>
         
-        <!-- Add aria-live for dynamic content updates -->
+        <!-- Output area for ASCII art -->
         <pre id="output" aria-live="polite"></pre>
+        <!-- Preview area for font style -->
         <pre id="fontPreview" aria-live="polite">Preview</pre>
+        <!-- Character count display -->
         <p id="charCount">0/100</p>
     </div>
 
@@ -46,9 +54,10 @@
         <button id="shareBtn" aria-label="Share ASCII art">Share</button>
     </div>
 
+    <!-- Include html2canvas for exporting images -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 
-    <!-- Add a footer -->
+    <!-- Footer with GitHub link -->
     <footer>
         <p>Created by TMHSDigital | <a href="https://github.com/tmhsdigital/ASCII-gen" target="_blank" rel="noopener noreferrer">GitHub</a></p>
     </footer>

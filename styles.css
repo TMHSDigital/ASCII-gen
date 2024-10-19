@@ -1,4 +1,6 @@
 /* styles.css */
+
+/* Basic styling for body */
 body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f9;
@@ -7,6 +9,7 @@ body {
     padding: 0;
 }
 
+/* Container styling */
 #container {
     text-align: center;
     margin-top: 50px;
@@ -18,6 +21,7 @@ body {
     margin: 50px auto;
 }
 
+/* Input styling */
 input[type="text"] {
     padding: 12px;
     font-size: 1rem;
@@ -29,6 +33,7 @@ input[type="text"] {
     margin-bottom: 10px;
 }
 
+/* Button styling */
 button {
     padding: 12px 24px;
     font-size: 1rem;
@@ -49,6 +54,7 @@ button:hover {
     transform: scale(1.05);
 }
 
+/* Preformatted text styling */
 pre {
     margin-top: 20px;
     font-family: monospace;
@@ -62,7 +68,7 @@ pre {
     box-sizing: border-box;
 }
 
-/* Add dark mode styles */
+/* Dark mode styles */
 body.dark-mode {
     background-color: #333;
     color: #f4f4f9;
@@ -97,7 +103,7 @@ body.dark-mode pre {
     }
 }
 
-/* Add animations */
+/* Animations for output and preview */
 #output, #fontPreview {
     transition: opacity 0.3s;
 }
@@ -106,7 +112,7 @@ body.dark-mode pre {
     opacity: 0.5;
 }
 
-/* Style the footer */
+/* Footer styling */
 footer {
     text-align: center;
     margin-top: 50px;
@@ -125,7 +131,7 @@ footer a:hover {
     text-decoration: underline;
 }
 
-/* Add tooltip styles */
+/* Tooltip styling */
 .tooltip {
     position: relative;
     display: inline-block;
@@ -154,7 +160,7 @@ footer a:hover {
     opacity: 1;
 }
 
-/* Button container for better layout */
+/* Button container layout */
 .button-container {
     display: flex;
     justify-content: center;

@@ -1,5 +1,6 @@
 // asciiGenerator.js
 
+// Function to generate ASCII art
 function generateASCII(text, font, callback) {
     figlet.text(text, { font: font }, function(err, data) {
         if (err) {
@@ -11,6 +12,7 @@ function generateASCII(text, font, callback) {
     });
 }
 
+// Function to update font preview
 function updateFontPreview(font, callback) {
     figlet.text('Preview', { font: font }, function(err, data) {
         if (err) {

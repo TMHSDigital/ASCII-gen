@@ -1,5 +1,6 @@
 // app.js
 window.onload = function() {
+    // Get references to DOM elements
     const generateBtn = document.getElementById("generateBtn");
     const userInput = document.getElementById("userInput");
     const fontSelect = document.getElementById("fontSelect");
@@ -9,11 +10,13 @@ window.onload = function() {
     const shareBtn = document.getElementById("shareBtn");
     const darkModeToggle = document.getElementById("darkModeToggle");
 
+    // Check if all elements are found
     if (!generateBtn || !userInput || !fontSelect || !output || !charCount || !exportBtn || !shareBtn || !darkModeToggle) {
         console.error("One or more elements not found");
         return;
     }
 
+    // Event listener for generating ASCII art
     generateBtn.addEventListener("click", function() {
         const text = userInput.value.trim();
         const font = fontSelect.value;
@@ -23,6 +26,7 @@ window.onload = function() {
             return;
         }
 
+        // Call function to generate ASCII art
         generateASCII(text, font, function(err, data) {
             if (err) {
                 output.innerText = "Error: Could not generate ASCII";
@@ -32,6 +36,7 @@ window.onload = function() {
         });
     });
 
+    // Event listener for exporting ASCII art as an image
     exportBtn.addEventListener("click", function() {
         if (output.innerText === "Generating ASCII art..." || output.innerText === "") {
             alert("Please generate the ASCII art before exporting.");
@@ -45,6 +50,7 @@ window.onload = function() {
         });
     });
 
+    // Event listener for copying ASCII art to clipboard
     output.addEventListener("click", function() {
         const outputText = output.innerText;
         navigator.clipboard.writeText(outputText).then(() => {
@@ -58,12 +64,14 @@ window.onload = function() {
         });
     });
 
+    // Toggle dark mode
     const toggleDarkMode = () => {
         document.body.classList.toggle('dark-mode');
     };
 
     darkModeToggle.addEventListener("click", toggleDarkMode);
 
+    // Update font preview on font change
     fontSelect.addEventListener("change", function() {
         const font = fontSelect.value;
         updateFontPreview(font, function(err, data) {
@@ -73,11 +81,13 @@ window.onload = function() {
         });
     });
 
+    // Update character count on input
     userInput.addEventListener("input", function() {
         const count = userInput.value.length;
         charCount.innerText = `${count}/100`;
     });
 
+    // Share ASCII art using Web Share API
     shareBtn.addEventListener('click', function() {
         const outputText = output.innerText;
         if (navigator.share) {
