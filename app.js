@@ -54,4 +54,31 @@ window.onload = function() {
         const charCount = document.getElementById("userInput").value.length;
         document.getElementById("charCount").innerText = `${charCount}/100`;
     });
+
+    // Export ASCII art as an image
+    document.getElementById("exportBtn").addEventListener("click", function() {
+        html2canvas(document.getElementById("output")).then(canvas => {
+            const link = document.createElement('a');
+            link.href = canvas.toDataURL();
+            link.download = 'ascii-art.png';
+            link.click();
+        });
+    });
+
+    // Add a share button
+    const shareBtn = document.createElement('button');
+    shareBtn.innerText = 'Share';
+    document.body.appendChild(shareBtn);
+
+    shareBtn.addEventListener('click', function() {
+        const outputText = document.getElementById("output").innerText;
+        if (navigator.share) {
+            navigator.share({
+                title: 'My ASCII Art',
+                text: outputText,
+            }).catch(console.error);
+        } else {
+            alert('Sharing not supported on this browser.');
+        }
+    });
 };

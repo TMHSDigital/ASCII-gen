@@ -25,7 +25,9 @@
             <option value="Banner">Banner</option>
             <option value="Block">Block</option>
         </select>
-        <button id="generateBtn">Generate</button>
+        <button id="generateBtn" class="tooltip">Generate
+            <span class="tooltiptext">Generate ASCII art</span>
+        </button>
         
         <!-- Add aria-live for dynamic content updates -->
         <pre id="output" aria-live="polite"></pre>
@@ -35,6 +37,12 @@
 
     <!-- Add a button for dark mode toggle -->
     <button id="darkModeToggle">Toggle Dark Mode</button>
+
+    <!-- Add a button for exporting ASCII art as an image -->
+    <button id="exportBtn" class="tooltip">Export as Image
+        <span class="tooltiptext">Download as PNG</span>
+    </button>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 
     <script src="app.js"></script>
 </body>
