@@ -18,4 +18,30 @@ window.onload = function() {
             document.getElementById("output").innerText = data;
         });
     });
+
+    document.getElementById("output").addEventListener("click", function() {
+        const outputText = document.getElementById("output").innerText;
+        navigator.clipboard.writeText(outputText).then(() => {
+            alert("ASCII art copied to clipboard!");
+        }).catch(err => {
+            console.error("Failed to copy text: ", err);
+        });
+    });
+
+    // Add dark mode toggle
+    const toggleDarkMode = () => {
+        document.body.classList.toggle('dark-mode');
+    };
+
+    document.getElementById("darkModeToggle").addEventListener("click", toggleDarkMode);
+
+    // Update font preview
+    function updateFontPreview() {
+        let fontSelect = document.getElementById("fontSelect").value;
+        figlet.text('Preview', { font: fontSelect }, function(err, data) {
+            if (!err) {
+                document.getElementById("fontPreview").innerText = data;
+            }
+        });
+    }
 };

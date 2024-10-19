@@ -16,7 +16,7 @@
         <label for="userInput">Enter text:</label>
         <input type="text" id="userInput" placeholder="Enter your text here" aria-label="Text input for ASCII generation">
         <label for="fontSelect">Choose a font:</label>
-        <select id="fontSelect" aria-label="Font selection for ASCII generation">
+        <select id="fontSelect" aria-label="Font selection for ASCII generation" onchange="updateFontPreview()">
             <option value="Standard">Standard</option>
             <option value="Slant">Slant</option>
             <option value="Ghost">Ghost</option>
@@ -28,7 +28,11 @@
         <button id="generateBtn">Generate</button>
         
         <pre id="output"></pre>
+        <pre id="fontPreview">Preview</pre>
     </div>
+
+    <!-- Add a button for dark mode toggle -->
+    <button id="darkModeToggle">Toggle Dark Mode</button>
 
     <script src="app.js"></script>
 </body>
