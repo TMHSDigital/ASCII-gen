@@ -112,6 +112,8 @@ footer {
     margin-top: 50px;
     font-size: 0.9rem;
     color: #666;
+    padding: 10px 0;
+    background-color: #f4f4f9;
 }
 
 footer a {
